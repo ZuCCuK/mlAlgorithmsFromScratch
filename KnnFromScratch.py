@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from collections import Counter
 
-points = {"blue": [[2, 4], [1, 3], [2, 3], [3, 2], [2, 1]],
-          "red": [[5, 4], [5, 6], [4, 5], [4, 6], [6, 6]]}
-new_point = [3, 4]
+points = {"blue": [[1,2, 4], [1,2, 3], [3,2, 3], [3, 2,4], [2, 3,1]],
+          "red": [[5, 4,6], [9,5, 6], [10,4, 5], [8,4, 6], [5,6, 6]]}
+new_point = [3, 4, 5]
 
 class Knn:
     def __init__(self, k):
@@ -31,14 +31,17 @@ clf = Knn(3)
 clf.fit(points)
 print(clf.predict(new_point))
 
-ax = plt.subplot()
+#ax = plt.subplot()
+fig = plt.figure(figsize=(15,12))
+ax = fig.add_subplot(projection="3d")
 ax.grid(True, color="#323232")
+ax.set_facecolor("black")
 ax.figure.set_facecolor("#121212")
 ax.tick_params(axis="x", color="white")
 ax.tick_params(axis="y", color="white")
 
 for point in points["blue"]:
-    ax.scatter(point[0], point[1], color="#104DCA", s=60)
+    ax.scatter(point[0], point[1], color="#104DCA", s=60)#buraya useniom yarın yapcm
 
 for point in points["red"]:
     ax.scatter(point[0], point[1], color="#FF0000", s=60)
@@ -55,3 +58,5 @@ for point in points["red"]:
     ax.plot([new_point[0], point[0]], [new_point[1], point[1]], color="#FF0000", linestyle="--", linewidth=1)
 
 plt.show()
+
+
