@@ -83,6 +83,6 @@ clf.fit(X,y)
 print(clf.predict(X_test))
 clf.visualize(X_test)
 y_pred = clf.predict(X_test)
-print("Tahmin edilen sınıflar:", y_pred)
+print("Preds:", y_pred)
 
 
